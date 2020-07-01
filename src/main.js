@@ -12,6 +12,10 @@ import router from './router'
 // 把通用头部注册为全局组件
 import hmHeader from './components/hmHeader.vue'
 import hmlogo from './components/hmlogo.vue'
+import axios from 'axios'
+
+Vue.prototype.$axios = axios
+axios.defaults.baseURL = 'http://localhost:3000'
 
 // 注册为全局组件
 Vue.component('hm-header', hmHeader)

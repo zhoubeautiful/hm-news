@@ -17,21 +17,24 @@
       />
       <div style="margin: 16px;">
         <van-button round block type="info" native-type="submit">
-          提交
+          登录
         </van-button>
       </div>
     </van-form>
+    <p class="tips">
+      没有账号？去<router-link to="/register">注册</router-link>
+    </p>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   data() {
     return {
       username: '',
       password: '',
       rules: {
+        // 数组形式
         username: [
           { required: true, message: '请填写用户名', trigger: 'onChange' },
           {
@@ -50,6 +53,12 @@ export default {
         ]
       }
     }
+  },
+  created() {
+    // 获取路由中的参数，赋值username和password
+    const { username, password } = this.$route.params
+    this.username = username
+    this.password = password
   },
   methods: {
     async onSubmit() {
@@ -74,4 +83,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="less" scoped>
+.login {
+  .tips {
+    font-size: 14px;
+    text-align: center;
+    padding-right: 20px;
+  }
+}
+</style>
