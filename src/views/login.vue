@@ -1,28 +1,19 @@
 <template>
+  <!-- 登录页面 -->
   <div class="login">
     <hm-header>登录</hm-header>
     <hm-logo></hm-logo>
     <!-- 表单 -->
     <van-form @submit="onSubmit">
-      <van-field
-        v-model="username"
-        placeholder="请输入用户名/手机号"
-        :rules="rules.username"
-      />
-      <van-field
-        v-model="password"
-        type="password"
-        placeholder="请输入密码"
-        :rules="rules.password"
-      />
+      <van-field v-model="username" placeholder="请输入用户名/手机号" :rules="rules.username" />
+      <van-field v-model="password" type="password" placeholder="请输入密码" :rules="rules.password" />
       <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit">
-          登录
-        </van-button>
+        <van-button round block type="info" native-type="submit">登录</van-button>
       </div>
     </van-form>
     <p class="tips">
-      没有账号？去<router-link to="/register">注册</router-link>
+      没有账号？去
+      <router-link to="/register">注册</router-link>
     </p>
   </div>
 </template>
@@ -62,17 +53,17 @@ export default {
   },
   methods: {
     async onSubmit() {
-      console.log(123)
-
-      const res = await axios.post('http://localhost:3000/login', {
+      const res = await this.$axios.post('/login', {
         username: this.username,
         password: this.password
       })
       console.log(res)
       const { statusCode, message, data } = res.data
       if (statusCode === 200) {
-        this.$router.push('/')
+        this.$router.push('/user')
         this.$toast.success(message)
+        // 保存user里面的id
+        localStorage.setItem('userId', data.user.id)
         // 保存token
         localStorage.setItem('token', data.token)
       } else {

@@ -1,4 +1,5 @@
 <template>
+  <!-- 注册页面 -->
   <div class="register">
     <hm-header>注册</hm-header>
     <hm-logo></hm-logo>
@@ -10,12 +11,7 @@
         placeholder="请输入用户名/手机号"
         :rules="rules.username"
       />
-      <van-field
-        v-model="user.nickname"
-        label="昵称"
-        placeholder="请输入昵称"
-        :rules="rules.nickname"
-      />
+      <van-field v-model="user.nickname" label="昵称" placeholder="请输入昵称" :rules="rules.nickname" />
       <van-field
         v-model="user.password"
         type="password"
@@ -24,12 +20,13 @@
         :rules="rules.password"
       />
       <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit">
-          注册
-        </van-button>
+        <van-button round block type="info" native-type="submit">注册</van-button>
       </div>
     </van-form>
-    <p class="tips">已有账号？去<router-link to="/login">登录</router-link></p>
+    <p class="tips">
+      已有账号？去
+      <router-link to="/login">登录</router-link>
+    </p>
   </div>
 </template>
 
@@ -74,7 +71,7 @@ export default {
 
   methods: {
     async onSubmit() {
-      const res = await axios.post('http://localhost:3000/register', this.user)
+      const res = await this.$axios.post('/register', this.user)
       console.log(res)
       const { statusCode, message } = res.data
       if (statusCode === 200) {
