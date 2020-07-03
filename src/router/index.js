@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import login from '../views/login.vue'
 import register from '../views/register.vue'
 import user from '../views/user.vue'
+import userEdit from '../views/userEdit.vue'
 
 Vue.use(VueRouter)
 
@@ -10,7 +11,8 @@ const router = new VueRouter({
   routes: [
     { path: '/login', component: login, name: 'login' },
     { path: '/register', component: register, name: 'register' },
-    { path: '/user', component: user, name: 'user' }
+    { path: '/user', component: user, name: 'user' },
+    { path: '/userEdit', component: userEdit, name: ' userEdit' }
   ]
 })
 
@@ -18,6 +20,7 @@ const router = new VueRouter({
 // to: 到哪儿去
 // from: 从哪儿来
 // next(): 代表放行
+
 // 保存所有需要登录才能访问的页面
 const pages = ['/user', '/user-edit']
 router.beforeEach(function(to, from, next) {

@@ -1,7 +1,7 @@
 <template>
   <!-- 个人中心页面 -->
   <div class="user">
-    <div class="header">
+    <div class="header" @click="$router.push('/user-edit')">
       <!-- 头像 -->
       <div class="avatar">
         <img :src="$axios.defaults.baseURL + info.head_img" />
@@ -34,7 +34,7 @@
         <template>我的收藏</template>
         <template #content>文章/视频</template>
       </hm-navbar>
-      <hm-navbar>设置</hm-navbar>
+      <hm-navbar @click="$router.push('/user-edit')">设置</hm-navbar>
     </div>
   </div>
 </template>

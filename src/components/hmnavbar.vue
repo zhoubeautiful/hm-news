@@ -1,5 +1,5 @@
 <template>
-  <div class="hm-navbar">
+  <div class="hm-navbar" @click="clickFn">
     <div class="title">
       <slot></slot>
     </div>
@@ -13,10 +13,18 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    // 只是触发，具体操作未知
+    clickFn() {
+      console.log('123')
+      this.$emit('click')
+    }
+  }
+}
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .hm-navbar {
   height: 50px;
   border-bottom: 1px solid #ccc;
