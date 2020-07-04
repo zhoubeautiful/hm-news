@@ -69,6 +69,10 @@ export default {
       } else {
         this.$toast.fail(message)
       }
+    },
+    fn() {
+      // 防止浏览器因为重复跳转到同一个路由而报错
+      this.$router.push('/login').catch(err => err)
     }
   }
 }

@@ -34,7 +34,8 @@
         <template>我的收藏</template>
         <template #content>文章/视频</template>
       </hm-navbar>
-      <hm-navbar @click="$router.push('/user-edit')">设置</hm-navbar>
+      <hm-navbar @click="$router.push('/userEdit')">设置</hm-navbar>
+      <hm-navbar @click="logout">退出</hm-navbar>
     </div>
   </div>
 </template>
@@ -57,22 +58,29 @@ export default {
     //     Authorization: token
     //   }
     // })
-
     const res = await this.$axios.get(`/user/${userId}`)
-
     console.log(res)
     const { statusCode, data } = res.data
     if (statusCode === 200) {
       this.info = data
     }
-
-    // // 用此方法会导致代码冗余
-    // if (statusCode === 401) {
-    //   this.$toast.fail('用户信息验证失败')
-    //   this.$router.push('/login')
-    //   localStorage.removeItem('token')
-    //   localStorage.removeItem('userId')
-    // }
+  },
+  methods: {
+    async logout() {
+      try {
+        await this.$dialog.confirm({
+          title: '温馨提示',
+          message: '亲，你确定要退出这个系统吗？'
+        })
+        // 点击确定走的代码：
+        localStorage.removeItem('token')
+        localStorage.removeItem('userId')
+        this.$router.push('/login')
+        this.$toast.success('退出成功')
+      } catch {
+        this.$toast('取消退出')
+      }
+    }
   }
 }
 </script>
