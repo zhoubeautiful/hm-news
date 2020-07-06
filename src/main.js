@@ -28,6 +28,7 @@ axios.interceptors.request.use(function(config) {
   // 给所有的请求都添加token
   const token = localStorage.getItem('token')
   if (token) {
+    // 如果有token就给请求头添加token
     config.headers.Authorization = token
   }
   return config

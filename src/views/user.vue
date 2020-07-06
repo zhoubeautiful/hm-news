@@ -22,7 +22,7 @@
     </div>
     <!-- 内容导航栏 -->
     <div class="nav">
-      <hm-navbar>
+      <hm-navbar @click="$router.push('/myfollow')">
         <template>我的关注</template>
         <template #content>关注的用户</template>
       </hm-navbar>
