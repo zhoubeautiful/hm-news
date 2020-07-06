@@ -27,8 +27,33 @@ export default {
       list: []
     }
   },
+  created() {
+    this.getList()
+  },
   methods: {
-    getList() {}
+    async getList() {
+      const res = await this.$axios.get('/user_follows')
+      const { statusCode, data } = res.data
+      if (statusCode === 200) {
+        this.list = data
+      }
+      console.log(this.list)
+    },
+    async unFollow(id) {
+      try {
+        await this.$dialog.confirm({
+          title: '温馨提示',
+          message: '亲，你确定要取关该用户吗？'
+        })
+        const res = await this.$axios.get(`/user_unfollow/${id}`)
+        if (res.data.statusCode === 200) {
+          this.$toast.success('取关成功')
+          this.getList()
+        }
+      } catch {
+        this.$toast('取消')
+      }
+    }
   }
 }
 </script>

@@ -8,7 +8,8 @@ import {
   Dialog,
   RadioGroup,
   Radio,
-  Uploader
+  Uploader,
+  list
 } from 'vant'
 
 // 全局导入vant
@@ -21,3 +22,4 @@ Vue.use(Dialog)
 Vue.use(RadioGroup)
 Vue.use(Radio)
 Vue.use(Uploader)
+Vue.use(list)
