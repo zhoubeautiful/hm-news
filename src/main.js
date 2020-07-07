@@ -11,6 +11,7 @@ import router from './router'
 import hmHeader from './components/hmHeader.vue'
 import hmlogo from './components/hmlogo.vue'
 import hmnavbar from './components/hmnavbar.vue'
+import hmpost from './components/hmpost.vue'
 // 引入库
 import axios from 'axios'
 import moment from 'moment'
@@ -56,6 +57,7 @@ axios.interceptors.response.use(function(response) {
 Vue.component('hm-header', hmHeader)
 Vue.component('hm-logo', hmlogo)
 Vue.component('hm-navbar', hmnavbar)
+Vue.component('hmpost', hmpost)
 
 // 定义全局过滤器
 Vue.filter('time', function(input) {

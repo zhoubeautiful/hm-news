@@ -9,7 +9,9 @@ import {
   RadioGroup,
   Radio,
   Uploader,
-  list
+  list,
+  Tab,
+  Tabs
 } from 'vant'
 
 // 全局导入vant
@@ -23,3 +25,5 @@ Vue.use(RadioGroup)
 Vue.use(Radio)
 Vue.use(Uploader)
 Vue.use(list)
+Vue.use(Tab)
+Vue.use(Tabs)
