@@ -21,6 +21,7 @@ import { Toast } from 'vant'
 Vue.prototype.$axios = axios
 // 配置axios的默认基准地址
 axios.defaults.baseURL = 'http://localhost:3000'
+
 // 给axios配置请求拦截器
 axios.interceptors.request.use(function(config) {
   // 浏览器发送的ajax请求的所有的配置信息

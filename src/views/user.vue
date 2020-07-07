@@ -1,7 +1,7 @@
 <template>
   <!-- 个人中心页面 -->
   <div class="user">
-    <div class="header" @click="$router.push('/user-edit')">
+    <div class="header" @click="$router.push('/userEdit')">
       <!-- 头像 -->
       <div class="avatar">
         <img :src="$axios.defaults.baseURL + info.head_img" />
