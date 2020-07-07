@@ -18,9 +18,11 @@ export default {}
 
 <style lang="less" scoped>
 .hm-header-wrapper {
+  // 包裹一个高度为40pa的大盒子
   height: 40px;
   .hm-header {
     background-color: #f5f5f5;
+    // 固定头部栏
     position: fixed;
     top: 0;
     left: 0;

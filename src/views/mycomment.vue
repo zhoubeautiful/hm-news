@@ -19,7 +19,7 @@
         offset="10"
       >
         <div class="item" v-for="item in list" :key="item.id">
-          <p class="time">{{ item.create_date }}</p>
+          <p class="time">{{ item.create_date | time('YYYY-MM-DD HH:mm') }}</p>
           <!-- 父评论 -->
           <div class="parent" v-if="item.parent">
             <p>回复：{{ item.parent.user.nickname }}</p>

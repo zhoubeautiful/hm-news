@@ -62,6 +62,15 @@ Vue.filter('time', function(input) {
   return moment(input).format('YYYY-MM-DD')
 })
 
+// 给vue的原型添加一个方法，用于处理图片的地址
+Vue.prototype.$url = function(url) {
+  if (url.startsWith('http')) {
+    return url
+  } else {
+    return axios.defaults.baseURL + url
+  }
+}
+
 Vue.config.productionTip = false
 
 new Vue({

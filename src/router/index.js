@@ -6,6 +6,7 @@ import user from '../views/user.vue'
 import userEdit from '../views/userEdit.vue'
 import myfollow from '../views/myfollow.vue'
 import mycomment from '../views/mycomment.vue'
+import mystar from '../views/mystar.vue'
 
 Vue.use(VueRouter)
 
@@ -16,7 +17,8 @@ const router = new VueRouter({
     { path: '/user', component: user, name: 'user' },
     { path: '/userEdit', component: userEdit, name: ' userEdit' },
     { path: '/myfollow', component: myfollow, name: 'myfollow' },
-    { path: '/mycomment', component: mycomment, name: 'mycomment' }
+    { path: '/mycomment', component: mycomment, name: 'mycomment' },
+    { path: '/mystar', component: mystar, name: 'mystar' }
   ]
 })
 
@@ -26,7 +28,7 @@ const router = new VueRouter({
 // next(): 代表放行
 
 // 保存所有需要登录才能访问的页面
-const pages = ['/user', '/user-edit']
+const pages = ['/user', '/user-edit', '/myfollow', '/mystar', '/mycomment']
 router.beforeEach(function(to, from, next) {
   // 获取到token
   const token = localStorage.getItem('token')
